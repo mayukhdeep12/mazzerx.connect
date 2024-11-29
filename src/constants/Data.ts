@@ -12,7 +12,7 @@ export const NAV_LINKS = [
     value: '/#projects'
   },
   {
-    label: 'Tags',
+    label: 'Praise',
     value: '/#skills'
   },
   {
