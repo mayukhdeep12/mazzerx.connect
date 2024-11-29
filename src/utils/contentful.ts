@@ -41,7 +41,7 @@ const sampleProjects = [
 ];
 
 const sampleContent = {
-  about: ["About line 1", "About line 2"],
+  about: "About line 1\nAbout line 2",
   skills: ["Skill 1", "Skill 2"],
   navLinks: {
     home: "/",
@@ -58,7 +58,7 @@ const sampleContent = {
 };
 
 // Mock function to mimic getBase64
-const getBase64 = async (src) => {
+const getBase64 = async (src: string) => {
   // Return a placeholder base64 string for demonstration purposes
   return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...";
 };
@@ -160,9 +160,9 @@ export const getSingleProject = cache(async (slug_: string) => {
 export const getContent = cache(async () => {
   try {
     return {
-      about: sampleContent.about.split(/\r?\n/).filter((line) => line.trim() !== '') || [],
+      about: sampleContent.about.split(/\r?\n/).filter((line: string) => line.trim() !== '') || [],
       skills: sampleContent.skills || [],
-      navLinks: sampleContent.navLinks.data || {},
+      navLinks: sampleContent.navLinks || {},
       contactLinks: sampleContent.contactLinks || {},
       otherLinks: sampleContent.otherLinks || {}
     };

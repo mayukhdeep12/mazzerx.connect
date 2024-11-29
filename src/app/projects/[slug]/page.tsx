@@ -17,7 +17,7 @@ export default async function Project({ params: { slug } }: { params: { slug: st
   if (!project) {
     notFound();
   }
-  const { name, image, tags, mdx, github, live } = project;
+  const { name, image, tags  } = project;
   const projectSchema = getProjectSchema(project);
 
   return (
@@ -36,9 +36,9 @@ export default async function Project({ params: { slug } }: { params: { slug: st
         />
       </figure>
       <Tags />
-      <MDXRemote source={mdx || ''} />
+      {/* <MDXRemote source={mdx || ''} /> */}
 
-      <ProjectLinks />
+      {/* <ProjectLinks /> */}
       <Script
         id='structured-schema'
         strategy='beforeInteractive'
@@ -48,22 +48,22 @@ export default async function Project({ params: { slug } }: { params: { slug: st
     </main>
   );
 
-  function ProjectLinks() {
-    return (
-      <div className={styles.links}>
-        {github && (
-          <Link href={github} disableExitAnimation rel='noopener noreferrer'>
-            Github
-          </Link>
-        )}
-        {live && (
-          <Link href={live} disableExitAnimation>
-            Live
-          </Link>
-        )}
-      </div>
-    );
-  }
+  // function ProjectLinks() {
+  //   return (
+  //     <div className={styles.links}>
+  //       {github && (
+  //         <Link href={github} disableExitAnimation rel='noopener noreferrer'>
+  //           Github
+  //         </Link>
+  //       )}
+  //       {live && (
+  //         <Link href={live} disableExitAnimation>
+  //           Live
+  //         </Link>
+  //       )}
+  //     </div>
+  //   );
+  // }
 
   function Tags() {
     return <ul className={styles.tags}>{tags?.map((tag, i) => <li key={i}>{tag}</li>)}</ul>;
@@ -94,7 +94,7 @@ export const generateMetadata = async ({
 
   return {
     title: project?.name,
-    description: project.mdx?.split('## Key Features')[0]?.trim(),
+    // description: project.mdx?.split('## Key Features')[0]?.trim(),
     keywords: [...((METADATA?.keywords as string[]) || []), ...(project?.tags || [])],
     openGraph: { title: project?.name, images: project?.image.src, url: project?.slug },
     twitter: { title: project?.name, images: project?.image.src },

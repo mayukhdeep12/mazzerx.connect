@@ -2,9 +2,15 @@ import { memo } from 'react';
 
 import Link from '@/components/Link';
 import SectionTitle from '@/components/SectionTitle';
-import { LinkObject } from '@/types';
+// import { LinkObject } from '@/types';
 
 import styles from './Contacts.module.scss';
+
+interface LinkObject {
+  href: string;
+  label: string;
+  value?: string; // Assuming value is optional
+}
 
 const Contacts = memo(function Contacts({
   contacts
@@ -24,7 +30,7 @@ const Contacts = memo(function Contacts({
             <li key={i}>
               <h4>{category}</h4>
               <ul>
-                {contacts[category].map(({ label, href, value }, index) => (
+                {contacts[category].map(({ label, href }, index) => (
                   <li key={index}>
                     <Link href={href} target='_blank'>
                       {label}
