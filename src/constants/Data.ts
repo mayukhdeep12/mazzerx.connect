@@ -12,8 +12,8 @@ export const NAV_LINKS = [
     value: '/#projects'
   },
   {
-    label: 'Praise',
-    value: '/#skills'
+    label: 'Review',
+    value: '/#review'
   },
   {
     label: 'KnowUs',

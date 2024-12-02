@@ -21,7 +21,7 @@ export type LinkObject = {
 export interface Content {
   name?: EntryFieldTypes.Symbol;
   about?: EntryFieldTypes.Text;
-  skills?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+  review?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   navLinks: EntryFieldTypes.Object<{ data: string[] }>;
   contacts: EntryFieldTypes.Object<{ [key: string]: LinkObject[] }>;
   otherLinks: EntryFieldTypes.Object<{ spotify: string }>;

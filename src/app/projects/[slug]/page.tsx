@@ -17,7 +17,8 @@ export default async function Project({ params: { slug } }: { params: { slug: st
   if (!project) {
     notFound();
   }
-  const { name, image, tags  } = project;
+
+  const { name, image, tags, detailedContent } = project;
   const projectSchema = getProjectSchema(project);
 
   return (
@@ -35,10 +36,27 @@ export default async function Project({ params: { slug } }: { params: { slug: st
           blurDataURL={image.base64}
         />
       </figure>
-      <Tags />
-      {/* <MDXRemote source={mdx || ''} /> */}
+      <Tags tags={tags} />
 
-      {/* <ProjectLinks /> */}
+      <section className={styles.detailed_content}>
+        {detailedContent.sections.map((section, index) => (
+          <div key={index} className={styles.section}>
+            <h3>{section.subheading}</h3>
+            <p>{section.paragraph}</p>
+            {/* <figure>
+              <Image
+                src={section.image.src}
+                alt={section.image.alt}
+                width={150}
+                height={150}
+                placeholder='blur'
+                blurDataURL={section.image.base64}
+              />
+            </figure> */}
+          </div>
+        ))}
+      </section>
+
       <Script
         id='structured-schema'
         strategy='beforeInteractive'
@@ -47,27 +65,10 @@ export default async function Project({ params: { slug } }: { params: { slug: st
       />
     </main>
   );
+}
 
-  // function ProjectLinks() {
-  //   return (
-  //     <div className={styles.links}>
-  //       {github && (
-  //         <Link href={github} disableExitAnimation rel='noopener noreferrer'>
-  //           Github
-  //         </Link>
-  //       )}
-  //       {live && (
-  //         <Link href={live} disableExitAnimation>
-  //           Live
-  //         </Link>
-  //       )}
-  //     </div>
-  //   );
-  // }
-
-  function Tags() {
-    return <ul className={styles.tags}>{tags?.map((tag, i) => <li key={i}>{tag}</li>)}</ul>;
-  }
+function Tags({ tags }: { tags: string[] }) {
+  return <ul className={styles.tags}>{tags?.map((tag, i) => <li key={i}>{tag}</li>)}</ul>;
 }
 
 export async function generateStaticParams() {
