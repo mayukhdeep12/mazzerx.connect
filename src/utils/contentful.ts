@@ -39,11 +39,11 @@ const sampleProjects = [
     }
   },
   {
-    name: "XR Experiences",
+    name: "XR Apps",
     slug: "xr-experiences",
     tags: ["Augmented Reality", "Virtual Reality"],
     image: {
-      src: "https://cdn.glitch.global/4c8c9e0a-aad7-4257-aedf-2cd32b466477/75b4cd8e2ab49f31d39ff278efe2fb87-transformed%20(1).jpeg?v=1732824302225",
+      src: "https://cdn.glitch.global/4c8c9e0a-aad7-4257-aedf-2cd32b466477/Close-Up%20Of%20Hand%20Holding%20Smartphone%20Displaying%20AR%20Armchair.png?v=1733598400164",
       alt: "Project 2 Image"
     },
     detailedContent: {
@@ -61,7 +61,7 @@ const sampleProjects = [
     slug: "med-tech",
     tags: ["Computer Vision", "Radiological Tools"],
     image: {
-      src: "https://cdn.glitch.global/4c8c9e0a-aad7-4257-aedf-2cd32b466477/04b643248180329a6681afc67344db52-transformed.jpeg?v=1732824373970",
+      src: "https://cdn.glitch.global/4c8c9e0a-aad7-4257-aedf-2cd32b466477/Futuristic%20Medical%20Scene%20With%20Augmented%20Reality%20Interactions.png?v=1733598397585",
       alt: "Project 2 Image"
     },
     detailedContent: {
